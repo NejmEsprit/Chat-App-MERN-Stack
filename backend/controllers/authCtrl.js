@@ -4,10 +4,10 @@ import generateTokenAndSetCookie from "../utils/generateToken.js";
 
 export const signupUser = async (req, res) => {
     try {
-        const { fullName, userName, password, confirmPassowrd, gender } = req.body;
-        if (password !== confirmPassowrd) {
-            return res.status(400).json({ error: "Password don't match" })
-        }
+        const { fullName, userName, password, confirmPassword, gender } = req.body;
+        if (password !== confirmPassword) {
+			return res.status(400).json({ error: "Passwords don't match cccc" });
+		}
         const user = await User.findOne({ userName })
         if (user) {
             return res.status(400).json({ error: "UserName already exists" })
